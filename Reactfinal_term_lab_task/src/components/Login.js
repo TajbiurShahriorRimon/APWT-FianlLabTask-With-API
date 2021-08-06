@@ -16,16 +16,9 @@ const LogIn = ({}) => {
         <div>
             <div>
                 <Link to="/AdminHome">Admin Home</Link> | |
-                <Link to="/EmployeeHome">Employee HOme</Link>
+                <Link to="/EmployeeHome">Employee Home</Link>
             </div>
             <h2>Login</h2>
-            {/*<LoginNavbar/>*/}
-            {/*<Route path="/AdminHome">
-                <div>
-                    <AdminHomePage/>
-                </div>
-            </Route>*/}
-            {/*<button status="true" onClick={redirect}>Admin Home</button>*/}
             <Router>
                 <LoginNavbar/>
                 <div>

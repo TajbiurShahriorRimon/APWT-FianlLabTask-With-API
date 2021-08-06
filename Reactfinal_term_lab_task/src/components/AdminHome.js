@@ -6,6 +6,8 @@ import RegistrationLink from "./RegistrationLink";
 import {render} from "@testing-library/react";
 import App from "../App";
 import {useState} from "react";
+import ProductList from "./ProductList";
+import EmployeeList from "./EmployeeList";
 
 
 const AdminHomePage = ({status}) =>{
@@ -22,6 +24,7 @@ const AdminHomePage = ({status}) =>{
                 <div>
                     <Link to="/registerEmployee">Create Employee</Link>
                 </div>
+
                 <div align="center">
                     <form action="">
                         <table>
@@ -35,6 +38,10 @@ const AdminHomePage = ({status}) =>{
                             </tbody>
                         </table>
                     </form>
+                </div>
+
+                <div align="center">
+                    <EmployeeList/>
                 </div>
             </div>
         )

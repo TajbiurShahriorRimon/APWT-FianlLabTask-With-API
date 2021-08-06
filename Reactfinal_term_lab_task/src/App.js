@@ -11,6 +11,7 @@ import RegistrationLink from "./components/RegistrationLink";
 import AddProduct from "./components/AddProduct";
 import { useState } from "react";
 import EmployeeHome from "./components/EmployeeHome";
+import EmployeeList from "./components/EmployeeList";
 
 function App() {
 
@@ -36,6 +37,12 @@ function App() {
                   </Route>
                   <Route path="/AddProduct">
                       <div><AddProduct/></div>
+                  </Route>
+                  <Route path="/getProducts">
+                      <div><ProductList/></div>
+                  </Route>
+                  <Route path="/getAllEmployees">
+                      <div><EmployeeList/></div>
                   </Route>
               </Switch>
           </Router>

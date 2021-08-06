@@ -1,25 +1,34 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import axios from "axios"; //install axios
 import Cors from 'cors';
 
 class ProductList extends Component{
+//export default function ProductList() {
+    //const [dataa, setData] = useState([]);
 
     state = {
-        students: [],
+        products: [],
         loading: true,
     }
 
     async componentDidMount() {
-        const resp = await axios.get('http://localhost:8000/getAllProducts');
-        //console.log(resp.data.status);
+        const resp = await axios.get('http://localhost:8000/api/getAllProducts');
+        console.log(resp.data);
 
         if (resp.data.status === 200){
             this.setState({
-                students: resp.data.students,
-                loading: true,
+                products: resp.data.products,
+                loading: false,
             })
         }
     }
+
+    /*useEffect(async()=>
+        await axios.get('/api/getAllProducts').then(response => {
+            setData(response.data.reverse())
+            localStorage.setItem("token", JSON.stringify(response.data));
+        }),[]
+    );*/
 
     render() {
         var studentTable = "";
@@ -28,12 +37,13 @@ class ProductList extends Component{
             studentTable = <tr><td>Loading...</td></tr>
         }
         else {
-            studentTable = this.state.map((item) => {
+            studentTable = this.state.products.map((item) => {
                 return(
                     <tr key={item.id}>
                         <td>{item.id}</td>
                         <td>{item.productName}</td>
                         <td>{item.price}</td>
+                        <td>{item.quantity}</td>
                     </tr>
                 )
             })
@@ -47,6 +57,7 @@ class ProductList extends Component{
                         <th>Id</th>
                         <th>Product Name</th>
                         <th>Price</th>
+                        <th>Quantity</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -56,6 +67,11 @@ class ProductList extends Component{
             </div>
         )
     }
+    /*render() {
+        return(
+            <h2>Hello</h2>
+        )
+    }*/
 }
 
 export default ProductList;
