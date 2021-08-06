@@ -1,6 +1,6 @@
 import React, {Component, useEffect} from 'react';
 import axios from "axios"; //install axios
-import {useHistory, withRouter, Route} from "react-router-dom";
+import {useHistory, withRouter, Route, Link} from "react-router-dom";
 import Cors from 'cors';
 
 class EmployeeList extends Component{
@@ -55,6 +55,7 @@ class EmployeeList extends Component{
                         <td>{item.contact}</td>
                         <td>
                             <button type="button" onClick={(e) => this.deleteEmployee(e, item.userId)}>Delete</button>
+                            <Link to={`/updateEmployee/${item.userId}`} >Edit</Link>
                         </td>
                     </tr>
                 )

@@ -32,4 +32,33 @@ class EmployeeController extends Controller
         $empName = $request->name;
         return response()->json(["status" => 200, "employee" => $empName]);
     }
+
+    function find($id){
+        $employee = DB::select("select * from user where userId = $id");
+        return response()->json([
+            "status" => 200,
+            "employee" => $employee
+        ]);
+    }
+
+    function updateEmployee(Request $request, $id){
+        $empId = (int)$id;
+        /*$emp = DB::update("update user set name = $request->name, contact = $request->contact,
+                        userName = $request->userName, password = $request->password where userId = $empId");*/
+        DB::update("update user set name = '$request->name', contact = '$request->contact',
+                        userName = '$request->userName', password = '$request->password' where userId = $empId");
+
+        $emp_name = $request->userName;
+        $emp_contact = $request->contact;
+        $emp_userName = $request->userName;
+        $emp_pass = $request->password;
+        return response()->json([
+            "status" => 200,
+            "emp" => $emp_name,
+            "empUser" => $emp_userName,
+            "empContact" => $emp_contact,
+            "empPass" => $emp_pass,
+            "empId" => $empId
+        ]);
+    }
 }

@@ -24,4 +24,6 @@ Route::get('/getAllProducts', [\App\Http\Controllers\api\ProductController::clas
 Route::get('/getAllEmployees', [\App\Http\Controllers\api\EmployeeController::class, 'index']);
 Route::delete('/deleteEmployee/{id}', [\App\Http\Controllers\api\EmployeeController::class, 'destroy']);
 Route::post("/insertEmployee", [\App\Http\Controllers\api\EmployeeController::class, 'insert']);
+Route::get("/findEmployee/{id}", [\App\Http\Controllers\api\EmployeeController::class, 'find']);
+Route::put("/updateEmployee/{id}", [\App\Http\Controllers\api\EmployeeController::class, 'updateEmployee']);
 

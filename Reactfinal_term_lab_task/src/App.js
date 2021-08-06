@@ -12,6 +12,7 @@ import AddProduct from "./components/AddProduct";
 import { useState } from "react";
 import EmployeeHome from "./components/EmployeeHome";
 import EmployeeList from "./components/EmployeeList";
+import UpdateEmployee from "./components/UpdateEmployee";
 
 function App() {
 
@@ -43,6 +44,9 @@ function App() {
                   </Route>
                   <Route path="/getAllEmployees">
                       <div><EmployeeList/></div>
+                  </Route>
+                  <Route path="/updateEmployee/:id">
+                      <div><UpdateEmployee/></div>
                   </Route>
               </Switch>
           </Router>
